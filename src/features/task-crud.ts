@@ -1,50 +1,71 @@
-//@ts-nocheck
-
 import { TASK_STORAGE_KEY, categories } from '../constants/index';
+import { TTask } from '../types/index';
 
-const getTasksDB = () => localStorage.getItem(TASK_STORAGE_KEY);
+export default class TaskCrud {
+  constructor() {}
 
-const saveTaskDB = (tasks) =>
-  localStorage.setItem(TASK_STORAGE_KEY, JSON.stringify(tasks));
+  getTasksDB() {
+    return localStorage.getItem(TASK_STORAGE_KEY);
+  }
 
-const saveFormTaskToDb = (task) => {
-  const tasksDB = getTasksDB();
-  if (tasksDB && tasksDB.length > 0) {
-    const taskData = JSON.parse(tasksDB);
-    taskData.push({
-      id: task.title.replaceAll(' ', '-'),
-      title: task.title,
-      deadline: task.deadline,
-      description: task.description,
-      category: categories.todo,
-    });
-    saveTaskDB(taskData);
-  } else {
-    saveTaskDB([
-      {
+  saveTaskDB(tasks: TTask[]) {
+    localStorage.setItem(TASK_STORAGE_KEY, JSON.stringify(tasks));
+  }
+
+  saveFormTaskToDb(task: TTask) {
+    const tasksDB = this.getTasksDB();
+
+    if (tasksDB && tasksDB.length > 0) {
+      const taskData = JSON.parse(tasksDB) as TTask[];
+      taskData.push({
         id: task.title.replaceAll(' ', '-'),
+        userId: task.userId,
         title: task.title,
         deadline: task.deadline,
         description: task.description,
         category: categories.todo,
-      },
-    ]);
-  }
-};
-
-const updateTaskToDB = (taskId, task) => {
-  const tasksDB = getTasksDB();
-  const taskData = JSON.parse(tasksDB);
-  const updatedTask = taskData.filter((value) => {
-    if (value.id === taskId) {
-      value.id = task.title.replaceAll(' ', '-');
-      value.title = task.title;
-      value.deadline = task.deadline;
-      value.description = task.description;
+      });
+      this.saveTaskDB(taskData);
+    } else {
+      this.saveTaskDB([
+        {
+          id: task.title.replaceAll(' ', '-'),
+          userId: task.userId,
+          title: task.title,
+          deadline: task.deadline,
+          description: task.description,
+          category: categories.todo,
+        },
+      ]);
     }
-    return value;
-  });
-  saveTaskDB(updatedTask);
-};
+  }
 
-export { saveFormTaskToDb, saveTaskDB, updateTaskToDB, getTasksDB };
+  updateTaskToDB(taskId: string, task: TTask) {
+    const tasksDB = this.getTasksDB();
+
+    if (tasksDB && tasksDB.length > 0) {
+      const taskData = JSON.parse(tasksDB) as TTask[];
+      const updatedTask = taskData.filter((value) => {
+        if (value.id === taskId) {
+          value.id = task.title.replaceAll(' ', '-');
+          value.title = task.title;
+          value.deadline = task.deadline;
+          value.description = task.description;
+        }
+        return value;
+      });
+      this.saveTaskDB(updatedTask);
+    }
+  }
+
+  deleteTaskToDB(taskId: string) {
+    const tasksDB = this.getTasksDB();
+    if (tasksDB && tasksDB.length > 0) {
+      const taskData = JSON.parse(tasksDB) as TTask[];
+      const updatedDeleteTasks = taskData.filter(
+        (value) => value.id !== taskId
+      );
+      this.saveTaskDB(updatedDeleteTasks);
+    }
+  }
+}

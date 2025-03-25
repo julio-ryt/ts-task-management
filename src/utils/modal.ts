@@ -1,35 +1,54 @@
-//@ts-nocheck
+export default class Modal {
+  constructor() {
+    const addTaskBtn = document.querySelector('.show-add-modal');
+    const importBtn = document.querySelector('.import-task');
+    const closeImportBtn = document.querySelector('.close-modal-import');
+    const closeAddOrEditBtn = document.querySelector('.close-modal-add');
 
-const closeAddModal = () =>
-  document.getElementById('modal-add-or-edit').close();
+    if (addTaskBtn instanceof HTMLButtonElement) {
+      addTaskBtn.addEventListener('click', () =>
+        this.toggleAddOrEditModal(true)
+      );
+    }
 
-const closeImportModal = () => document.getElementById('import-modal').close();
+    if (closeAddOrEditBtn instanceof HTMLButtonElement) {
+      closeAddOrEditBtn.addEventListener('click', () =>
+        this.toggleAddOrEditModal(false)
+      );
+    }
 
-const showAddModalListener = () =>
-  document.querySelector('.show-add-modal').addEventListener('click', () => {
-    document.getElementById('modal-add-or-edit').showModal();
-  });
+    if (importBtn instanceof HTMLButtonElement) {
+      importBtn.addEventListener('click', () => this.toggleImportModal(true));
+    }
 
-const showImportModalListener = () =>
-  document.querySelector('.import-task').addEventListener('click', () => {
-    document.getElementById('import-modal').showModal();
-  });
+    if (closeImportBtn instanceof HTMLButtonElement) {
+      closeImportBtn.addEventListener('click', () =>
+        this.toggleImportModal(false)
+      );
+    }
+  }
 
-const closeAddModalListener = () =>
-  document
-    .querySelector('.close-modal-add')
-    .addEventListener('click', closeAddModal);
+  private toggleAddOrEditModal(isShow: boolean) {
+    const AddOrEditModal = document.getElementById('modal-add-or-edit');
 
-const closeImportModalListener = () =>
-  document
-    .querySelector('.close-modal-import')
-    .addEventListener('click', closeImportModal);
+    if (AddOrEditModal instanceof HTMLDialogElement) {
+      isShow ? AddOrEditModal.showModal() : AddOrEditModal.close();
+    }
+  }
 
-export {
-  closeAddModal,
-  closeImportModal,
-  closeImportModalListener,
-  showAddModalListener,
-  showImportModalListener,
-  closeAddModalListener,
-};
+  closeAddOrEditModal() {
+    const AddOrEditModal = document.getElementById('modal-add-or-edit');
+
+    if (AddOrEditModal instanceof HTMLDialogElement) {
+      AddOrEditModal.close();
+    }
+  }
+
+  private toggleImportModal(isShow: boolean) {
+    const importModal = document.getElementById('import-modal');
+
+    if (importModal instanceof HTMLDialogElement) {
+      isShow ? importModal.showModal() : importModal.close();
+    }
+  }
+}

@@ -1,41 +1,53 @@
-//@ts-nocheck
-
 import { USERS_STORAGE_KEY } from '../constants/index';
+import { TUser } from '../types/index';
 
-const checkAuth = () => {
-  const users = localStorage.getItem(USERS_STORAGE_KEY);
-  if (users == null) {
-    location.href = 'index.html';
+export default class Auth {
+  constructor() {
+    this.checkAuth();
+    const logOutBtn = document.querySelector('.btn-log-out');
+
+    if (logOutBtn instanceof HTMLButtonElement) {
+      logOutBtn.addEventListener('click', this.handleLogOut);
+    }
   }
-  const data = JSON.parse(users);
-  const user = data.find((value) => value.isAuth);
 
-  if (data.find((value) => value.isAuth)) {
+  private checkAuth() {
+    const users = localStorage.getItem(USERS_STORAGE_KEY);
     const auth = document.createElement('input');
-    auth.type = 'hidden';
-    auth.id = 'auth-user';
-    auth.value = user.id;
-    document.body.appendChild(auth);
-  } else {
-    location.href = 'index.html';
-  }
-};
 
-const logOut = () => {
-  document.querySelector('.btn-log-out').addEventListener('click', () => {
+    if (users == null) {
+      location.href = 'index.html';
+      return;
+    }
+
+    const data = JSON.parse(users) as TUser[];
+    const user = data.find((value) => value.isAuth);
+
+    if (user && auth instanceof HTMLInputElement) {
+      auth.type = 'hidden';
+      auth.id = 'auth-user';
+      auth.value = user.id.toString();
+      document.body.appendChild(auth);
+    } else {
+      location.href = 'index.html';
+    }
+  }
+
+  private handleLogOut() {
     const auth = document.getElementById('auth-user');
     const users = localStorage.getItem(USERS_STORAGE_KEY);
-    const data = JSON.parse(users);
 
-    const updated = data.filter((value) => {
-      if (value.username === auth.value) {
-        value.isAuth = false;
-      }
-      return value;
-    });
-    localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(updated));
-    location.reload();
-  });
-};
+    if (users && auth instanceof HTMLInputElement) {
+      const data = JSON.parse(users) as TUser[];
+      const updated = data.filter((value) => {
+        if (value.id === Number(auth.value)) {
+          value.isAuth = false;
+        }
+        return value;
+      });
 
-export { checkAuth, logOut };
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(updated));
+      location.reload();
+    }
+  }
+}

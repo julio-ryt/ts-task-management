@@ -5,7 +5,7 @@
     "scss:watch": "gulp",
     "build": "webpack",
     "start": "node ./dist/app.js",
-    "dev": "concurrently  \"lite-server --config=bs-config.json\" \"sass --watch ./src/sass/main.scss ./src/css/style.min.css\""
+    "dev": "concurrently  \"lite-server --config=bs-config.json\" \"sass --watch ./src/sass/main.scss ./src/css/style.min.css\" \"webpack --watch\""
   },
   "keywords": [],
   "author": "Julio Merlo",

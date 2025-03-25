@@ -1,99 +1,71 @@
+import { USERS_STORAGE_KEY } from '../constants/index';
+import { TUser } from '../types/index';
 import Security from '../utils/security';
 
-const security = new Security();
-
 document.addEventListener('DOMContentLoaded', () => {
-  // formListener();
-  registerListener();
-  security.togglePassword();
+  new Login();
 });
 
-class Login {
-  registerListener() {
-    const btnRegister = document.querySelector('.register');
-    btnRegister?.addEventListener(
-      'click',
-      () => (location.href = './register.html')
-    );
-  }
+class Login extends Security {
+  constructor() {
+    super();
+    this.togglePassword();
 
-  formListener() {
     const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
+    const btnRegister = document.querySelector('.register');
+
+    if (btnRegister instanceof HTMLButtonElement) {
+      btnRegister.addEventListener(
+        'click',
+        () => (location.href = './register.html')
+      );
+    }
+
+    if (loginForm instanceof HTMLFormElement) {
+      this.handleLogin = this.handleLogin.bind(this);
       loginForm.addEventListener('submit', this.handleLogin);
     }
   }
 
-  handleLogin(e: Event) {
+  private handleLogin(e: Event) {
     e.preventDefault();
     e.stopPropagation();
 
-    const loginElements = document.forms;
+    const loginElements = document.forms.namedItem('loginForm');
 
-    // if (loginElements) {
-    //   loginElements.namedItem('loginForm');
-    //   const loginForm = new FormData(loginElements);
-    //   const username = security.encodeHTML(loginForm.get('username'));
-    //   const password = security.encodeHTML(loginForm.get('password'));
-    //   const users = localStorage.getItem(USERS_STORAGE_KEY);
-    // }
+    if (loginElements) {
+      const users = localStorage.getItem(USERS_STORAGE_KEY);
+      const loginForm = new FormData(loginElements);
+      const usernameForm = this.encodeHTML(loginForm.get('username') as string);
+      const passwordForm = this.encodeHTML(loginForm.get('password') as string);
 
-    // if (users && users.length > 0) {
-    //   const data = JSON.parse(users);
-    //   const isUser = data.findIndex(
-    //     (value) => value.username === username && value.password === password
-    //   );
-    //   if (isUser == -1) {
-    //     document.querySelector('.login-error').style.display = 'initial';
-    //   } else {
-    //     data[isUser].isAuth = true;
-    //     localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(data));
-    //     location.href = '/dashboard.html';
-    //   }
-    // } else {
-    //   document.querySelector('.login-error').style.display = 'initial';
-    // }
+      if (users && users.length > 0) {
+        const data = JSON.parse(users) as TUser[];
+        const isUser = data.findIndex(
+          (value) =>
+            value.username === usernameForm && value.password === passwordForm
+        );
+        if (isUser == -1) {
+          this.displayLoginError(true);
+        }
+        if (data[isUser] !== undefined) {
+          data[isUser].isAuth = true;
+          localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(data));
+          this.displayLoginError(false);
+          location.href = '/dashboard.html';
+        }
+      } else {
+        this.displayLoginError(true);
+      }
+    }
+  }
+
+  private displayLoginError(isShow: boolean) {
+    const loginError = document.querySelector(
+      '.login-error'
+    ) as HTMLParagraphElement;
+    if (loginError) {
+      loginError.style.display = isShow ? 'initial' : 'none';
+    }
   }
 }
-
-// const formListener = () => {
-//   const loginForm = document.getElementById('loginForm');
-//   if (loginForm) {
-//     loginForm.addEventListener('submit', handleLogin);
-//   }
-// };
-
-// const registerListener = () => {
-//   const btnRegister = document.querySelector('.register');
-//   btnRegister?.addEventListener(
-//     'click',
-//     () => (location.href = './register.html')
-//   );
-// };
-
-// const handleLogin = (e: Event) => {
-//   e.preventDefault();
-//   e.stopPropagation();
-
-//   const loginElements = document.forms.loginForm;
-//   const loginForm = new FormData(loginElements);
-//   const username = encodeHTML(loginForm.get('username'));
-//   const password = encodeHTML(loginForm.get('password'));
-//   const users = localStorage.getItem(USERS_STORAGE_KEY);
-
-//   if (users && users.length > 0) {
-//     const data = JSON.parse(users);
-//     const isUser = data.findIndex(
-//       (value) => value.username === username && value.password === password
-//     );
-//     if (isUser == -1) {
-//       document.querySelector('.login-error').style.display = 'initial';
-//     } else {
-//       data[isUser].isAuth = true;
-//       localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(data));
-//       location.href = '/dashboard.html';
-//     }
-//   } else {
-//     document.querySelector('.login-error').style.display = 'initial';
-//   }
-// };
