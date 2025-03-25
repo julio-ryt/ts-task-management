@@ -1,0 +1,70 @@
+@mixin task-holder($text-color, $bg-color) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  overflow-y: auto;
+
+  h4 {
+    width: auto;
+    display: inline-block;
+    padding: 10px;
+    color: $text-color;
+    border-radius: 10px;
+    background-color: $bg-color;
+  }
+
+  section {
+    background-color: $bg-color;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+
+    & > article {
+      border: 2px solid $text-color;
+      border-radius: 10px;
+      background-color: white;
+      width: 100%;
+      padding: 15px;
+
+      & header {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+
+        & h5 {
+          font-weight: bold;
+          text-wrap: balance;
+          flex: 1;
+        }
+      }
+
+      & p {
+        margin: 20px 0;
+        text-wrap: balance;
+      }
+
+      & h6 {
+        margin-top: 15px;
+        text-wrap: balance;
+        border: 2px dashed $text-color;
+        padding: 10px;
+      }
+
+      & footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        & button {
+          display: inherit;
+          align-items: center;
+          gap: 15px;
+        }
+      }
+    }
+  }
+}

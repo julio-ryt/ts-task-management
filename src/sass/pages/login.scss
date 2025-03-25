@@ -1,0 +1,69 @@
+@use '../partials/colors' as *;
+
+body.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+
+  main {
+    align-self: center;
+    justify-self: center;
+
+    section {
+      background-color: $light-gray;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .login-error {
+        padding: 30px;
+        display: none;
+
+        .error {
+          color: $error;
+        }
+      }
+
+      form {
+        margin-bottom: 15px;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: $dark-gray;
+
+        legend {
+          color: $dark-gray;
+        }
+
+        button {
+          width: 100%;
+        }
+
+        label {
+          color: $dark-gray;
+        }
+
+        .form-control {
+          position: relative;
+
+          i {
+            color: $dark-gray;
+          }
+
+          .btn-toggle-password {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            padding: 6px;
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@use '../partials/colors' as *;
+
+body.register {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+
+  main {
+    align-self: center;
+    justify-self: center;
+
+    section {
+      background-color: $light-gray;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+
+      form {
+        margin-bottom: 15px;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: $dark-gray;
+
+        legend {
+          color: $dark-gray;
+        }
+
+        .error-container {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+
+          p {
+            color: $error;
+          }
+          p.success {
+            color: $success;
+          }
+        }
+
+        button {
+          width: 100%;
+        }
+
+        label {
+          color: $dark-gray;
+        }
+
+        .form-control {
+          position: relative;
+
+          i {
+            color: $dark-gray;
+          }
+
+          .btn-toggle-password {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            padding: 6px;
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+
+      #btn-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        margin-left: -12.5px;
+        margin-top: -12.5px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

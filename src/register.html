@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Develop a fully functional Task Management System"
+    />
+    <meta
+      name="keywords"
+      content="software, renegade, julio, merlo, responsive, task, system"
+    />
+    <meta name="author" content="Julio Merlo" />
+    <title>Task Management System | Register</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.min.css" />
+
+    <script
+      src="https://kit.fontawesome.com/8df9994193.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script defer src="/dist/register.bundle.js" type="module"></script>
+  </head>
+  <body class="register">
+    <main>
+      <section>
+        <form action="" method="post" id="registerForm">
+          <fieldset>
+            <legend>Register your credentials</legend>
+            <div class="form-control">
+              <label for="username">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span class="fa-sr-only">The Font Awesome User Icon</span>
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                class="input"
+                minlength="4"
+                name="username"
+                placeholder="your username"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <label for="password">
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                <span class="fa-sr-only">The Font Awesome Lock Icon</span>
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                class="input"
+                minlength="8"
+                name="password"
+                placeholder="type your password"
+                required
+              />
+              <button
+                class="btn btn-toggle-password"
+                data-type="password"
+                data-is-toggle="0"
+                type="button"
+              >
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                <span class="fa-sr-only">The Font Awesome Eye Icon</span>
+              </button>
+            </div>
+            <div class="form-control">
+              <label for="confirm-password">
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                <span class="fa-sr-only">The Font Awesome Lock Icon</span>
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirm-password"
+                class="input"
+                minlength="8"
+                name="confirm-password"
+                placeholder="confirm your password"
+                required
+              />
+              <button
+                class="btn btn-toggle-password"
+                data-type="confirm"
+                data-is-toggle="0"
+                type="button"
+              >
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                <span class="fa-sr-only">The Font Awesome Eye Icon</span>
+              </button>
+            </div>
+            <div class="error-container">
+              <p class="">Username only contain letter and numbers</p>
+              <p class="">
+                Password must have an Uppercase, Lowercase and Numbers.
+              </p>
+              <p class="">
+                Confirm Password must have an Uppercase, Lowercase and Numbers.
+              </p>
+              <p class="">Password and Confirm Password must be the same.</p>
+            </div>
+            <button type="submit" class="btn btn-outline">
+              <i class="fa-solid fa-address-card"></i>
+              <span class="sr-only">Submit My Credentials</span>
+              Register
+            </button>
+          </fieldset>
+        </form>
+        <button id="btn-back" type="button" class="btn">
+          <i class="fa-solid fa-left-long"></i>
+        </button>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+@use '../partials/colors' as *;
+@use '../partials/mixin' as *;
+
+body.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+
+  header {
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    gap: 30px;
+
+    .avatar {
+      display: inherit;
+      color: $light-gray;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .actions {
+      display: inherit;
+      gap: 20px;
+    }
+
+    .settings {
+      flex: 1;
+      display: inherit;
+      justify-content: end;
+    }
+  }
+  main {
+    background-color: $light-gray;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    gap: 40px;
+    overflow-y: auto;
+
+    .to-do {
+      @include task-holder($dark-gray, #d4dae3);
+    }
+    .in-progress {
+      @include task-holder(#2e2ed5, #c5ceeb);
+    }
+    .in-review {
+      @include task-holder($warning, #fef9ea);
+    }
+    .closed {
+      @include task-holder($success, #edf5f3);
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body.dashboard main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    height: 100%;
+  }
+  body.dashboard main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 400px;
+  }
+}

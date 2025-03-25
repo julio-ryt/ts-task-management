@@ -1,0 +1,32 @@
+@use './colors' as *;
+
+form {
+  padding: 10px 20px;
+
+  legend {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 30px;
+
+    .input {
+      border-radius: 10px;
+      border: 1px solid $dark-gray;
+      padding: 10px 20px;
+      height: 50px;
+    }
+
+    .error-import {
+      color: $error;
+    }
+  }
+
+  menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+}

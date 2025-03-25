@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Develop a fully functional Task Management System"
+    />
+    <meta
+      name="keywords"
+      content="software, renegade, julio, merlo, responsive, task, system"
+    />
+    <meta name="author" content="Julio Merlo" />
+    <title>Task Management System | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.min.css" />
+
+    <script
+      src="https://kit.fontawesome.com/8df9994193.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script defer src="/dist/dashboard.bundle.js" type="module"></script>
+  </head>
+  <body class="dashboard">
+    <header>
+      <section class="avatar">
+        <i class="fa-regular fa-user"></i>
+        <p>username</p>
+      </section>
+      <section class="actions">
+        <button type="button" class="btn btn-primary show-add-modal">
+          <i class="fa-solid fa-plus" aria-hidden="true" title="Add Task"></i>
+          <span class="sr-only">Add Task</span>
+          Add Task
+        </button>
+        <button type="button" class="btn btn-primary export-task">
+          <i class="fa-solid fa-download" aria-hidden="true" title="Export"></i>
+          <span class="sr-only">Export Task</span>
+          Export
+        </button>
+        <button type="button" class="btn btn-primary import-task">
+          <i
+            class="fa-solid fa-file-import"
+            aria-hidden="true"
+            title="Import"
+          ></i>
+          <span class="sr-only">Import</span>
+          Import
+        </button>
+      </section>
+      <section class="settings">
+        <button class="btn btn-error btn-log-out" type="button">Log out</button>
+      </section>
+    </header>
+    <main>
+      <section class="to-do">
+        <h4>
+          <i class="fa-regular fa-circle"></i>
+          <span class="fa-sr-only">The Font Awesome To Do Icon</span>
+          To Do
+        </h4>
+        <section class="to-do-wrapper"></section>
+      </section>
+      <section class="in-progress">
+        <h4>
+          <i class="fa-solid fa-circle-notch"></i>
+          <span class="fa-sr-only">The Font Awesome In Progress Icon</span>
+          In Progress
+        </h4>
+        <section class="in-progress-wrapper"></section>
+      </section>
+      <section class="in-review">
+        <h4>
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          <span class="fa-sr-only">The Font Awesome In Review Icon</span>
+          In Review
+        </h4>
+        <section class="in-review-wrapper"></section>
+      </section>
+      <section class="closed">
+        <h4>
+          <i class="fa-solid fa-circle-check"></i>
+          <span class="fa-sr-only">The Font Awesome Closed Icon</span>
+          Closed
+        </h4>
+        <section class="closed-wrapper"></section>
+      </section>
+      <dialog id="modal-add-or-edit">
+        <form
+          method="dialog"
+          action=""
+          id="addOrEditTask"
+          data-type="add"
+          data-task-id=""
+        >
+          <section>
+            <fieldset>
+              <legend>Add Task</legend>
+              <div class="form-control">
+                <label for="title">
+                  <i class="fa-solid fa-clipboard"></i>
+                  Title
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  minlength="10"
+                  required
+                  class="input"
+                />
+              </div>
+              <div class="form-control">
+                <label for="deadline">
+                  <i class="fa-solid fa-calendar"></i>
+                  DeadLine
+                </label>
+                <input
+                  type="date"
+                  name="deadline"
+                  id="deadline"
+                  class="input"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label for="description">
+                  <i class="fa-solid fa-comment"></i>
+                  Task Description
+                </label>
+                <textarea
+                  name="description"
+                  id="description"
+                  class="input"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+            </fieldset>
+          </section>
+          <menu>
+            <button type="reset" class="btn close-modal-add">Cancel</button>
+            <button type="submit" class="btn btn-primary">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
+      <dialog id="import-modal">
+        <form method="post" action="" id="importJson">
+          <fieldset>
+            <legend>Import Tasks</legend>
+            <div class="form-control">
+              <label for="file-json">
+                <i class="fa-solid fa-clipboard"></i>
+                Task
+              </label>
+              <input
+                type="file"
+                id="file-json"
+                name="file-json"
+                accept="application/json"
+                required
+                class="input"
+              />
+              <p class="error-import"></p>
+            </div>
+          </fieldset>
+          <menu>
+            <button type="reset" class="btn close-modal-import">Cancel</button>
+            <button type="submit" class="btn btn-primary">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
+    </main>
+  </body>
+</html>

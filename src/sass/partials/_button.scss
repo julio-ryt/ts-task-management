@@ -1,0 +1,34 @@
+@use './colors' as *;
+
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  border-width: 2px;
+  border-style: solid;
+  transition: all 0.3s ease-in;
+
+  &.btn-primary {
+    background-color: $light-gray;
+    border-color: $light-gray;
+
+    &:hover {
+      border-color: $medium-gray;
+    }
+  }
+
+  &.btn-outline {
+    border-color: $dark-gray;
+    &:hover {
+      border-color: $light-gray;
+    }
+  }
+
+  &.btn-error {
+    background-color: $error;
+    color: $light-gray;
+
+    &:hover {
+      border-color: $dark-gray;
+    }
+  }
+}

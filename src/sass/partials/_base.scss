@@ -1,0 +1,11 @@
+@use './colors' as *;
+
+body {
+  height: 100vh;
+  background-color: $dark-gray;
+  overflow: hidden;
+
+  dialog {
+    border-radius: 10px;
+  }
+}

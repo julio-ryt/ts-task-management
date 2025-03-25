@@ -1,0 +1,1118 @@
+/**
+ * Modern CSS Reset Tweaks
+ * ==================================================
+ * A collection of modern CSS reset and normalization styles
+ * to ensure consistent behavior across browsers, OS and devices.
+ */
+/* Ensure consistent font resizing on mobile devices */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Basic body setup for layout and text rendering optimization */
+body {
+  text-size-adjust: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+/* Apply box-sizing globally for consistent element sizing */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+/* Style unclassed links for better accessibility */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/**
+ * CSS Reset Tweaks
+ * Based on Eric Meyer's CSS Reset v2.0-modified (public domain)
+ * URL: http://meyerweb.com/eric/tools/css/reset/
+ */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+br,
+button,
+canvas,
+caption,
+center,
+cite,
+code,
+col,
+colgroup,
+data,
+datalist,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+head,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+input,
+ins,
+kbd,
+label,
+legend,
+li,
+link,
+main,
+map,
+mark,
+menu,
+meta,
+meter,
+nav,
+noscript,
+object,
+ol,
+optgroup,
+option,
+output,
+p,
+param,
+picture,
+pre,
+progress,
+q,
+rb,
+rp,
+rt,
+rtc,
+ruby,
+s,
+samp,
+script,
+section,
+select,
+small,
+source,
+span,
+strong,
+style,
+svg,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+template,
+textarea,
+tfoot,
+th,
+thead,
+time,
+title,
+tr,
+track,
+tt,
+u,
+ul,
+var,
+video,
+wbr {
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* Add focus styles to improve accessibility */
+:focus {
+  outline: 0;
+}
+
+/* Normalize HTML5 elements for older browsers */
+article,
+aside,
+details,
+embed,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+object,
+section {
+  display: block;
+}
+
+canvas,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove default list styling */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Normalize quote styling */
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* Reset and normalize form inputs */
+input:required,
+input {
+  box-shadow: none;
+}
+
+/* Autofill styling for better compatibility */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/* Improve appearance of search inputs */
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+input:focus {
+  outline: none;
+}
+
+video {
+  background: #000;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ */
+[hidden] {
+  display: none;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: none;
+}
+
+/**
+ * Make media easier to work with
+ */
+audio,
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/* Additional attribute handling for accessibility */
+[disabled],
+[disabled=true],
+[aria-disabled=true] {
+  pointer-events: none;
+}
+
+/**
+ * Address box sizing set to content-box in IE 8/9.
+ */
+input[type=checkbox],
+input[type=radio] {
+  padding: 0;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-indent: 0;
+}
+
+/**
+ * Based on normalize.css v8.0.1
+ * github.com/necolas/normalize.css
+ */
+hr {
+  box-sizing: content-box;
+  overflow: visible;
+  background: #000;
+  border: 0;
+  height: 1px;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  page-break-after: always;
+  width: 100%;
+}
+
+/**
+ * Correct the inheritance and scaling of font size in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  font-size: 100%;
+}
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 75%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -5px;
+}
+
+sup {
+  top: -5px;
+}
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Show the overflow in IE and Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+  outline: 0;
+}
+
+legend {
+  color: inherit;
+  white-space: normal;
+  display: block;
+  border: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: block;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+template {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+label,
+input,
+select,
+option,
+optgroup,
+legend,
+button,
+textarea {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  height: 100vh;
+  background-color: #27374d;
+  overflow: hidden;
+}
+body dialog {
+  border-radius: 10px;
+}
+
+form {
+  padding: 10px 20px;
+}
+form legend {
+  margin-bottom: 20px;
+}
+form .form-control {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+form .form-control .input {
+  border-radius: 10px;
+  border: 1px solid #27374d;
+  padding: 10px 20px;
+  height: 50px;
+}
+form .form-control .error-import {
+  color: #dc3545;
+}
+form menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  border-width: 2px;
+  border-style: solid;
+  transition: all 0.3s ease-in;
+}
+.btn.btn-primary {
+  background-color: #dde6ed;
+  border-color: #dde6ed;
+}
+.btn.btn-primary:hover {
+  border-color: #526d82;
+}
+.btn.btn-outline {
+  border-color: #27374d;
+}
+.btn.btn-outline:hover {
+  border-color: #dde6ed;
+}
+.btn.btn-error {
+  background-color: #dc3545;
+  color: #dde6ed;
+}
+.btn.btn-error:hover {
+  border-color: #27374d;
+}
+
+body.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+}
+body.login main {
+  align-self: center;
+  justify-self: center;
+}
+body.login main section {
+  background-color: #dde6ed;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+body.login main section .login-error {
+  padding: 30px;
+  display: none;
+}
+body.login main section .login-error .error {
+  color: #dc3545;
+}
+body.login main section form {
+  margin-bottom: 15px;
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: #27374d;
+}
+body.login main section form legend {
+  color: #27374d;
+}
+body.login main section form button {
+  width: 100%;
+}
+body.login main section form label {
+  color: #27374d;
+}
+body.login main section form .form-control {
+  position: relative;
+}
+body.login main section form .form-control i {
+  color: #27374d;
+}
+body.login main section form .form-control .btn-toggle-password {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+}
+
+body.register {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+}
+body.register main {
+  align-self: center;
+  justify-self: center;
+}
+body.register main section {
+  background-color: #dde6ed;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+body.register main section form {
+  margin-bottom: 15px;
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: #27374d;
+}
+body.register main section form legend {
+  color: #27374d;
+}
+body.register main section form .error-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+body.register main section form .error-container p {
+  color: #dc3545;
+}
+body.register main section form .error-container p.success {
+  color: #198754;
+}
+body.register main section form button {
+  width: 100%;
+}
+body.register main section form label {
+  color: #27374d;
+}
+body.register main section form .form-control {
+  position: relative;
+}
+body.register main section form .form-control i {
+  color: #27374d;
+}
+body.register main section form .form-control .btn-toggle-password {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+}
+body.register main section #btn-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  margin-left: -12.5px;
+  margin-top: -12.5px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+}
+body.dashboard header {
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  gap: 30px;
+}
+body.dashboard header .avatar {
+  display: inherit;
+  color: #dde6ed;
+  align-items: center;
+  gap: 15px;
+}
+body.dashboard header .actions {
+  display: inherit;
+  gap: 20px;
+}
+body.dashboard header .settings {
+  flex: 1;
+  display: inherit;
+  justify-content: end;
+}
+body.dashboard main {
+  background-color: #dde6ed;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 40px;
+  overflow-y: auto;
+}
+body.dashboard main .to-do {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  overflow-y: auto;
+}
+body.dashboard main .to-do h4 {
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  color: #27374d;
+  border-radius: 10px;
+  background-color: #d4dae3;
+}
+body.dashboard main .to-do section {
+  background-color: #d4dae3;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+body.dashboard main .to-do section > article {
+  border: 2px solid #27374d;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  padding: 15px;
+}
+body.dashboard main .to-do section > article header {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+body.dashboard main .to-do section > article header h5 {
+  font-weight: bold;
+  text-wrap: balance;
+  flex: 1;
+}
+body.dashboard main .to-do section > article p {
+  margin: 20px 0;
+  text-wrap: balance;
+}
+body.dashboard main .to-do section > article h6 {
+  margin-top: 15px;
+  text-wrap: balance;
+  border: 2px dashed #27374d;
+  padding: 10px;
+}
+body.dashboard main .to-do section > article footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+body.dashboard main .to-do section > article footer button {
+  display: inherit;
+  align-items: center;
+  gap: 15px;
+}
+body.dashboard main .in-progress {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  overflow-y: auto;
+}
+body.dashboard main .in-progress h4 {
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  color: #2e2ed5;
+  border-radius: 10px;
+  background-color: #c5ceeb;
+}
+body.dashboard main .in-progress section {
+  background-color: #c5ceeb;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+body.dashboard main .in-progress section > article {
+  border: 2px solid #2e2ed5;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  padding: 15px;
+}
+body.dashboard main .in-progress section > article header {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+body.dashboard main .in-progress section > article header h5 {
+  font-weight: bold;
+  text-wrap: balance;
+  flex: 1;
+}
+body.dashboard main .in-progress section > article p {
+  margin: 20px 0;
+  text-wrap: balance;
+}
+body.dashboard main .in-progress section > article h6 {
+  margin-top: 15px;
+  text-wrap: balance;
+  border: 2px dashed #2e2ed5;
+  padding: 10px;
+}
+body.dashboard main .in-progress section > article footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+body.dashboard main .in-progress section > article footer button {
+  display: inherit;
+  align-items: center;
+  gap: 15px;
+}
+body.dashboard main .in-review {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  overflow-y: auto;
+}
+body.dashboard main .in-review h4 {
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  color: #efb414;
+  border-radius: 10px;
+  background-color: #fef9ea;
+}
+body.dashboard main .in-review section {
+  background-color: #fef9ea;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+body.dashboard main .in-review section > article {
+  border: 2px solid #efb414;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  padding: 15px;
+}
+body.dashboard main .in-review section > article header {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+body.dashboard main .in-review section > article header h5 {
+  font-weight: bold;
+  text-wrap: balance;
+  flex: 1;
+}
+body.dashboard main .in-review section > article p {
+  margin: 20px 0;
+  text-wrap: balance;
+}
+body.dashboard main .in-review section > article h6 {
+  margin-top: 15px;
+  text-wrap: balance;
+  border: 2px dashed #efb414;
+  padding: 10px;
+}
+body.dashboard main .in-review section > article footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+body.dashboard main .in-review section > article footer button {
+  display: inherit;
+  align-items: center;
+  gap: 15px;
+}
+body.dashboard main .closed {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  overflow-y: auto;
+}
+body.dashboard main .closed h4 {
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  color: #198754;
+  border-radius: 10px;
+  background-color: #edf5f3;
+}
+body.dashboard main .closed section {
+  background-color: #edf5f3;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+body.dashboard main .closed section > article {
+  border: 2px solid #198754;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  padding: 15px;
+}
+body.dashboard main .closed section > article header {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+body.dashboard main .closed section > article header h5 {
+  font-weight: bold;
+  text-wrap: balance;
+  flex: 1;
+}
+body.dashboard main .closed section > article p {
+  margin: 20px 0;
+  text-wrap: balance;
+}
+body.dashboard main .closed section > article h6 {
+  margin-top: 15px;
+  text-wrap: balance;
+  border: 2px dashed #198754;
+  padding: 10px;
+}
+body.dashboard main .closed section > article footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+body.dashboard main .closed section > article footer button {
+  display: inherit;
+  align-items: center;
+  gap: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+  body.dashboard main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    height: 100%;
+  }
+  body.dashboard main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 400px;
+  }
+}
+
+/*# sourceMappingURL=style.min.css.map */
