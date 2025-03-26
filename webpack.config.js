@@ -1,4 +1,4 @@
-const path = require('path');
+import { resolve } from 'path';
 
 module.exports = {
   entry: {
@@ -20,6 +20,6 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'dist'),
   },
 };

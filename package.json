@@ -5,21 +5,15 @@
     "scss:watch": "gulp",
     "build": "webpack",
     "start": "node ./dist/app.js",
-    "dev": "concurrently  \"lite-server --config=bs-config.json\" \"sass --watch ./src/sass/main.scss ./src/css/style.min.css\" \"webpack --watch\""
+    "dev": "concurrently \"lite-server --config=bs-config.json\" \"sass --watch ./src/sass/main.scss:./src/css/style.min.css --style compressed\" \"webpack --watch\""
   },
   "keywords": [],
   "author": "Julio Merlo",
   "license": "ISC",
-  "description": "Develop a fully functional Task Management System",
+  "description": "Develop a fully functional Task Management System Typescript",
   "devDependencies": {
     "@types/node": "^22.13.13",
     "concurrently": "^9.1.2",
-    "cssnano": "^7.0.6",
-    "gulp": "^5.0.0",
-    "gulp-cli": "^3.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-postcss": "^10.0.0",
-    "gulp-sass": "^6.0.1",
     "lite-server": "^2.6.1",
     "sass": "^1.85.1",
     "scss-reset": "^1.4.6",
