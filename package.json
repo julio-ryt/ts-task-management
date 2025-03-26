@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "scss:watch": "gulp",
+    "build-exercise-one": "tsc ./nodejs-exercise/demo.ts",
+    "start-exercise-one": "node ./nodejs-exercise/demo.js",
     "build": "webpack",
     "start": "node ./dist/app.js",
     "dev": "concurrently \"lite-server --config=bs-config.json\" \"sass --watch ./src/sass/main.scss:./src/css/style.min.css --style compressed\" \"webpack --watch\""
